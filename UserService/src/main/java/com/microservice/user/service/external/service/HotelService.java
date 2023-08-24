@@ -10,18 +10,18 @@ import java.util.List;
 @FeignClient("HOTEL-SERVICE")
 public interface HotelService {
 
-    @PostMapping("hotel")
+    @PostMapping("hotels")
     ResponseEntity<Hotel> create(Hotel hotel);
-    @GetMapping("hotel/{hotelId}")
+    @GetMapping("hotels/{hotelId}")
     Hotel getHotel(@PathVariable String hotelId);
 
-    @GetMapping("hotel")
+    @GetMapping("hotels")
     List<Hotel> getAll();
 
-    @PutMapping("hotel/{hotelId}")
+    @PutMapping("hotels/{hotelId}")
     Hotel update(@PathVariable String hotelId,Hotel hotel);
 
-    @DeleteMapping("hotel/{hotelId}")
+    @DeleteMapping("hotels/{hotelId}")
     Hotel delete(@PathVariable String hotelId);
 
 }
