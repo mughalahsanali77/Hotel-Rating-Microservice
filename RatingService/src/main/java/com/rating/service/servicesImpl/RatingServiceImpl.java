@@ -20,8 +20,31 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
+    public Rating findById(String id) {
+        Rating rating=this.ratingRepository.findById(id).orElseThrow(()->new RuntimeException("Rating Not Found With id : "+id));
+        return rating;
+    }
+
+    @Override
     public List<Rating> getAllRatings() {
         return ratingRepository.findAll();
+    }
+
+    @Override
+    public Rating update(String id,Rating rating) {
+        Rating ratingFromDb=this.ratingRepository.findById(id).orElseThrow(()->new RuntimeException("Rating Not Found With id : "+id));
+        ratingFromDb.setRating(rating.getRating());
+        ratingFromDb.setFeedback(rating.getFeedback());
+        ratingFromDb.setHotelId(rating.getHotelId());
+        ratingFromDb.setUserId(rating.getUserId());
+        return this.ratingRepository.save(ratingFromDb);
+    }
+
+    @Override
+    public Rating delete(String id) {
+        Rating ratingFromDb=this.ratingRepository.findById(id).orElseThrow(()->new RuntimeException("Rating Not Found With id : "+id));
+        this.ratingRepository.delete(ratingFromDb);
+        return ratingFromDb;
     }
 
     @Override

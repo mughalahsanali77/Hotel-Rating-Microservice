@@ -1,0 +1,12 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: CONFIG-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/mughalahsanali77/configuration-server-hotel-rating-microservices
+          clone-on-start: true
+          default-label : main
