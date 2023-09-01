@@ -48,7 +48,14 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+		<!--	DEPENDENCY TO FETCH CONFIGURATION FROM SERVER-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
 	</dependencies>
+
+
 
 	<!--MUST ADD DEPENDENCY MANAGEMENT FOR CLIENT-->
 	<dependencyManagement>

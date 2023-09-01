@@ -7,11 +7,20 @@ spring:
     mongodb:
      uri: mongodb://localhost:27017
      database: microservices
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    prefer-ip-address: true
+  config:
+    import: optional:configserver:http://localhost:8085
+
+
+#  ------------TO CHANGE PROFILE
+#  profiles:
+#    active: prod
+
+# -----------EUREKA CONFIG IS NOW GETTING FROM spring.config.import
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone : http://localhost:8761/eureka
